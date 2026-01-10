@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import net.digest.journalApp.entity.JournalEntry;
 import net.digest.journalApp.entity.User;
 import net.digest.journalApp.repository.JournalEntryRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Slf4j
@@ -25,7 +26,7 @@ public class JournalEntryService {
     private UserService userServices;
 
 
-    // @Transactional
+    @Transactional
     public void saveEntry(JournalEntry journalEntry, String username){
         User user = userServices.findByUserName(username);
         journalEntry.setDate(LocalDateTime.now());
