@@ -22,7 +22,7 @@ public class RedisService {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue(o.toString(), entityClass);
         } catch (Exception e) {
-            log.error("Exception ", e);
+            log.error(e.getMessage());
             return null;
         }
     }
@@ -33,7 +33,7 @@ public class RedisService {
             String jsonValue = mapper.writeValueAsString(o);
             redisTemplate.opsForValue().set(key, jsonValue, ttl, TimeUnit.SECONDS);
         } catch (Exception e) {
-            log.error("Exception ", e);
+            log.error(e.getMessage());
         }
     }
 }
