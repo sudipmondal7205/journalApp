@@ -51,7 +51,7 @@ public class SpringSecurity {
         return auth.getAuthenticationManager();
     }
     
-   
+    
     public void configureGlobal(AuthenticationManagerBuilder auth, PasswordEncoder passwordEncoder) throws Exception{
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
