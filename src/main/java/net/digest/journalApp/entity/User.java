@@ -21,7 +21,7 @@ import lombok.Setter;
 @Setter
 @Builder
 public class User {
-    
+
     @Id
     private ObjectId id;
 
